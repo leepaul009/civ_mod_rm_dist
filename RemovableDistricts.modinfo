@@ -8,6 +8,7 @@
 	  <SpecialThanks>Wiseguy, gBazov, Horem</SpecialThanks>
     <CompatibleVersions>2.0</CompatibleVersions>
   </Properties>
+
   <InGameActions>
     <UpdateDatabase id="RD_Gameplay">
       <Properties>
@@ -15,35 +16,40 @@
       </Properties>
       <File>RemovableDistricts.sql</File>
     </UpdateDatabase>
+
     <UpdateText id="RD_TextChanges">
       <Properties>
         <LoadOrder>9999999</LoadOrder>
       </Properties>
       <File>RemovableDistricts_text.sql</File>
     </UpdateText>
-	  <ImportFiles id="RD_Icon_Import">
+
+    <ImportFiles id="RD_Icon_Import">
       <Properties>
         <LoadOrder>1</LoadOrder>
       </Properties>
-		  <Items>
-			  <File>Icons/RemovableDistricts32.dds</File>
-			  <File>Icons/RemovableDistricts38.dds</File>
-			  <File>Icons/RemovableDistricts50.dds</File>
-			  <File>Icons/RemovableDistricts80.dds</File>
-			  <File>Icons/RemovableDistricts128.dds</File>
-			  <File>Icons/RemovableDistricts256.dds</File>
-		  </Items>
-	  </ImportFiles>
+      <Items>
+	  <File>Icons/RemovableDistricts32.dds</File>
+	  <File>Icons/RemovableDistricts38.dds</File>
+	  <File>Icons/RemovableDistricts50.dds</File>
+	  <File>Icons/RemovableDistricts80.dds</File>
+	  <File>Icons/RemovableDistricts128.dds</File>
+	  <File>Icons/RemovableDistricts256.dds</File>
+      </Items>
+    </ImportFiles>
+
     <Icons id="RD_Icons">
       <Properties>
         <LoadOrder>9999999</LoadOrder>
       </Properties>
       <File>RemovableDistricts_Icons.xml</File>
     </Icons>
+
     <AddGameplayScripts id="RD_Lua">
       <File>RemovableDistricts.lua</File>
     </AddGameplayScripts>
   </InGameActions>
+
   <Files>
     <File>RemovableDistricts.sql</File>
     <File>RemovableDistricts_Icons.xml</File>
