@@ -42,4 +42,5 @@ INSERT INTO RD_civType_uniqueDistrictType ( CivType, ReplacedDistrictType, Uniqu
 -- delete project whose related district is civ-unique
 DELETE FROM Projects
   WHERE (Projects.PrereqDistrict
-  IN (SELECT RD_civType_uniqueDistrictType.UniqueDistrictType FROM RD_civType_uniqueDistrictType) AND Projects.ProjectType LIKE 'PROJECT_REMOVE_%');
+    IN (SELECT RD_civType_uniqueDistrictType.UniqueDistrictType FROM RD_civType_uniqueDistrictType)
+    AND Projects.ProjectType LIKE 'PROJECT_REMOVE_%');
