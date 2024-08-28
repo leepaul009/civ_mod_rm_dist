@@ -32,9 +32,14 @@ CREATE TABLE "RD_civType_uniqueDistrictType" (
 		"ReplacedDistrictType" TEXT NOT NULL,
 		"UniqueDistrictType" TEXT NOT NULL);
 
+-- get type of civ-unique district from other tables
 INSERT INTO RD_civType_uniqueDistrictType ( CivType, ReplacedDistrictType, UniqueDistrictType )
- SELECT a.CivilizationType, c.ReplacesDistrictType, b.DistrictType FROM CivilizationTraits AS a, Districts AS b, DistrictReplaces AS c WHERE a.TraitType = b.TraitType AND c.CivUniqueDistrictType = b.DistrictType ;
+  SELECT a.CivilizationType, c.ReplacesDistrictType, b.DistrictType
+  FROM CivilizationTraits AS a, Districts AS b, DistrictReplaces AS c
+  WHERE a.TraitType = b.TraitType AND c.CivUniqueDistrictType = b.DistrictType ;
 
---We do this so multiple remove projects don't show up when you have a unique district replacement
+-- We do this so multiple remove projects don't show up when you have a unique district replacement
+-- delete project whose related district is civ-unique
 DELETE FROM Projects
-WHERE (Projects.PrereqDistrict IN (SELECT RD_civType_uniqueDistrictType.UniqueDistrictType FROM RD_civType_uniqueDistrictType) AND Projects.ProjectType LIKE 'PROJECT_REMOVE_%');
+  WHERE (Projects.PrereqDistrict
+  IN (SELECT RD_civType_uniqueDistrictType.UniqueDistrictType FROM RD_civType_uniqueDistrictType) AND Projects.ProjectType LIKE 'PROJECT_REMOVE_%');
